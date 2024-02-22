@@ -1,0 +1,106 @@
+<!-- Form Validation using html tag attribute pattern (regular expression)-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation: Task1</title>
+    <style>
+         * {
+          box-sizing: border-box;
+        }
+        body {
+          background-color: #fff;
+          height: 100vh;
+          color: #333;
+          font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+          padding: 1em;
+          margin: 0;
+          background-color: whitesmoke;
+        }
+        form{
+            width: 80%;
+            height: 80vh;
+            margin-top:1.2rem;
+            margin-left:auto;
+            margin-right:auto;
+            background-color: lightgray;
+            padding:1rem;
+            border:2px solid black;
+
+        }
+        ul{
+            list-style: none;
+            width: 60%;
+            margin-right: auto;
+            margin-left:auto;
+        }
+
+        h2{
+            text-align: center;
+        }
+        li{
+            display: flex;
+            flex-direction: column;
+        }
+        li>button{
+           margin-top:1rem;
+        }
+        li>textarea{
+            resize: none;
+        }
+
+        input:focus{
+             outline:1px solid black;
+        }
+
+        /* css for invalid */
+
+        #uname:invalid,
+        #email:invalid,
+        #phone:invalid,
+        #comment:invalid{
+            border:2px dotted red;
+
+        }
+
+        /* css for valid */
+
+        #uname:valid,
+        #email:valid,
+        #phone:valid,
+        #comment:valid{
+            border:2px dotted green;
+        }
+      </style>
+    </head>
+    <body>
+
+ <!-- use novalidate attribute in form tag which will stop browser to check form validity-->
+            <form class="form">
+                <h2>Enter Support Query</h2>
+                <ul>
+                    <li>
+                        <label for="user-name">Username:</label>
+                        <input type="text" name="uname" id="uname" required minlength="5" maxlength="20" pattern="^[a-z]\.[a-z0-9]{3,}$">
+                    </li>
+                    <li>
+                        <label for="email">Email address:</label>
+                        <input type="text" name="email" id="email" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$
+                        ">
+                    </li>   
+                    <li>
+                        <label for="phone">Phone Number: </label>
+                        <input type="number" name="phone" id="phone" required  pattern="^(?:\d{3}[ -.]?\d{3}[ -.]?\d{4}|\d{10})$">
+                    </li>
+                    <li>
+                        <label for="comment">Comment: </label>
+                        <textarea name="comment" id="comment" required maxlength="200"></textarea>
+                    </li>
+                    <li>
+                        <button type="submit" >Submit</button>
+                    </li>
+                </ul>
+            </form>
+    </body>
+</html>
